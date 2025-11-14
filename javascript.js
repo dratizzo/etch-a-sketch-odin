@@ -1,3 +1,5 @@
+
+
 const divPaiDeTodos = document.querySelector(".container");
 
 for (let i = 0;i < 16;i++) {
@@ -10,3 +12,13 @@ for (let i = 0;i < 16;i++) {
 
     divPaiDeTodos.appendChild(divColumn);
 }
+
+const divsGrid = document.querySelectorAll(".container div div")
+
+// Colocar o eventListener individualmente em cada elemento
+
+divsGrid.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+        item.classList.add("hover-black");
+    });
+});

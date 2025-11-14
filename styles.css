@@ -9,11 +9,14 @@
 }
 
 .container div div {
-    background-color: white;
     padding: 15px;
     border-style: solid;
     border-width: 1px;
     border-color: black;
     box-sizing: border-box;
     flex: 1 1 auto;
+}
+
+.hover-black {
+    background-color: black;
 }
