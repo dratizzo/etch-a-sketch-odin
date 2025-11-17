@@ -1,24 +1,38 @@
+const btnGrid = document.querySelector(".btn-grid-size");
 
+let gridSize;
 
-const divPaiDeTodos = document.querySelector(".container");
+// Rodar o event listener com um valor padrão?
+btnGrid.addEventListener('click', () => {
+    do {
+        gridSize = Number(prompt("Insira um valor de até 100 para o tamanho do grid")); 
+    }
+    while (gridSize < 1 || gridSize > 100 || typeof(gridSize) != "number" || Number.isNaN(gridSize));
 
-for (let i = 0;i < 16;i++) {
+    const divPaiDeTodos = document.querySelector(".container");
+
+    while (divPaiDeTodos.lastChild) {
+        divPaiDeTodos.removeChild(divPaiDeTodos.lastChild);
+    }
+
+    // Cria o grid
+    for (let i = 0;i < gridSize;i++) {
     const divColumn = document.createElement("div");
 
-    for (let j = 0;j < 16;j++) {
-        const divRow = document.createElement("div");
-        divColumn.appendChild(divRow);
+        for (let j = 0;j < gridSize;j++) {
+            const divRow = document.createElement("div");
+            divColumn.appendChild(divRow);
     }
 
     divPaiDeTodos.appendChild(divColumn);
-}
+    }
 
-const divsGrid = document.querySelectorAll(".container div div")
-
-// Colocar o eventListener individualmente em cada elemento
-
-divsGrid.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-        item.classList.add("hover-black");
+    const quadradosGrid = document.querySelectorAll(".container div div");
+    // Colocar o eventListener individualmente em cada elemento
+    quadradosGrid.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.classList.add("hover-black");
+        });
     });
+
 });
