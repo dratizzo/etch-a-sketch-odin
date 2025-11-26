@@ -2,6 +2,8 @@ const btnGrid = document.querySelector(".btn-grid-size");
 
 let gridSize;
 
+
+
 // Rodar o event listener com um valor padrão?
 btnGrid.addEventListener('click', () => {
     do {
@@ -24,6 +26,12 @@ btnGrid.addEventListener('click', () => {
             divColumn.appendChild(divRow);
     }
 
+    function randomColor() {
+        return ( Math.floor(Math.random() * 255) + 1 );
+    }
+
+
+
     divPaiDeTodos.appendChild(divColumn);
     }
 
@@ -31,7 +39,8 @@ btnGrid.addEventListener('click', () => {
     // Colocar o eventListener individualmente em cada elemento
     quadradosGrid.forEach((item) => {
         item.addEventListener('mouseover', () => {
-            item.classList.add("hover-black");
+            /** item.classList.add("hover-black"); **/
+            item.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
         });
     });
 
