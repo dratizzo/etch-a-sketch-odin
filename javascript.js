@@ -30,8 +30,6 @@ btnGrid.addEventListener('click', () => {
         return ( Math.floor(Math.random() * 255) + 1 );
     }
 
-
-
     divPaiDeTodos.appendChild(divColumn);
     }
 
@@ -41,6 +39,12 @@ btnGrid.addEventListener('click', () => {
         item.addEventListener('mouseover', () => {
             /** item.classList.add("hover-black"); **/
             item.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+
+            let getOpacity = Number(item.style.opacity) || 0;
+            
+            getOpacity += 0.1;
+
+            item.style.opacity = `${getOpacity}`;
         });
     });
 
